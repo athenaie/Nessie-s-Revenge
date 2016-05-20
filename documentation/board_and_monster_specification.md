@@ -4,7 +4,7 @@
  Each player starts the game with one of each `monster_type`, with their `length`s given below:
 
 | `monster_type` | length | Origin |
-|-|-|-|
+|----------------|--------|--------|
 | **Nessie** | 5 | Scottish |
 | **Ogopogo** | 4 | Canadian |
 | **Inkanyamba** | 3 | South African |
@@ -17,7 +17,7 @@
  On the board, `board_piece`s are signified as follows:
 
 | `board_piece` | character |
-|-|:-:|
+|---------------|:---------:|
 | **monster** | M |
 | **hit** | X |
 | **miss** | / |
@@ -27,8 +27,8 @@
 
 ## Sample Board
 
-||1|2|3|4|5|6|7|8|9|10|
-|-|-|-|-|-|-|-|-|-|-|-|-|
+|   | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
+|---|---|---|---|---|---|---|---|---|---|----|
 | **A** |||M|X|X|/|||||
 | **B** ||/|||/||||/||
 | **C** |||||M|||/|||
