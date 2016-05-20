@@ -17,7 +17,6 @@ def print_board(board):
 
     # print rest of board
 
-
     for i in range(0,2):
         print('||', string.ascii_uppercase[i], end=' || ')
         for cell in board[i]:
