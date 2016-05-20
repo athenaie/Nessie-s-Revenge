@@ -1,7 +1,8 @@
 # Nessie-s-Revenge
 
 ## What is it?
-A CLI game modeled after the popular game battleship.
+
+Nessie's Revenge is a CLI implementation of battle ship. The name is based on the name of the Loch Ness Monster, Nessie. Instead of leading a fleet of ships, each player has a collection of lake monsters from around the world.
 
 ## Why is nothing/very little here yet?
 This project is currently being ported from the work I have already done in Java into Python, since I changed my mind about the implementation language I wanted to use. In a few days there should be significantly more code, so check back!
