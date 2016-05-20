@@ -17,8 +17,8 @@ def print_board(board):
 
     # print rest of board
     for row in range(0,2): #TODO make this the correct range for whole board
-        print('||', string.ascii_uppercase[i], end=' || ')
-        for cell in board[i]:
+        print('||', string.ascii_uppercase[row], end=' || ')
+        for cell in board[row]:
             print(cell, end=' | ')
         print('\n||---||---------------------------------------|')
 
