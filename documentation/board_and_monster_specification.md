@@ -1,15 +1,15 @@
 # Board and Monster Specification
 
 ## Monster Specification
- Each player starts the game with one of each `monster_type`, with their `length`s given below:
+ Each player starts the game with one monster of each `monster_id`:
 
-| `monster_type` | length | Origin |
-|----------------|--------|--------|
-| **Nessie** | 5 | Scottish |
-| **Ogopogo** | 4 | Canadian |
-| **Inkanyamba** | 3 | South African |
-| **Lariousauro** | 3 | Italian |
-| **Muyso** | 2 | Columbian |
+| `monster_id` | monster_name | length | Origin |
+|--------------|----------------|--------|--------|
+| **0000** | Nessie | 5 | Scottish |
+| **0001** | Ogopogo | 4 | Canadian |
+| **0010** | Inkanyamba | 3 | South African |
+| **0011** | Lariousauro | 3 | Italian |
+| **0100** | Muyso | 2 | Columbian |
 
 ## Board Specification
  Each player has two `10`x`10` boards that can be displayed to them. Their primary board showing their own monsters with the hits and misses of their opponent, and their target board with their hits and misses taken against their opponent.
