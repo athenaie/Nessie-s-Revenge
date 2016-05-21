@@ -19,8 +19,8 @@ This message is sent to inform the server of the clients' attempt to place a mon
 | `player_id` | u short | 2 bytes | player's id number, identifies client |
 | `start_coordinate_x` | u char | 2 byte | the x coordinate where the monster starts |
 | `start_coordinate_y` | u char | 1 byte | the y coordinate where the monster starts |
-| `end_coordinate_x` | u char | 1 byte | the x coordinate where the monster starts |
-| `end_coordinate_y` | u char | 1 byte | the y coordinate where the monster starts |
+| `end_coordinate_x` | u char | 1 byte | the x coordinate where the monster ends |
+| `end_coordinate_y` | u char | 1 byte | the y coordinate where the monster ends |
 | **Total** | | 8 bytes | |
 
 
