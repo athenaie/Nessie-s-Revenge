@@ -31,8 +31,8 @@ This message is sent to inform the server of the clients' attempt to shoot at a 
 |-------|--------|------|-------------|
 | `message_type` | u char | 1 byte | monster placement messages have type 1 |
 | `player_id` | u short | 2 bytes | player's id number, identifies client |
-| `target_coord_x` | u char | 2 bytes | the x coordinate where the monster starts |
-| `target_coord_y` | u char | 1 byte | the y coordinate where the monster starts |
+| `target_coord_x` | u char | 2 bytes | the x coordinate of target cell |
+| `target_coord_y` | u char | 1 byte | the y coordinate of target cell |
 | **Total** | | 6 bytes | |
 
 ## Server Messages
