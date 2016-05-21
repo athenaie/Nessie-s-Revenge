@@ -36,3 +36,46 @@ This message is sent to inform the server of the clients' attempt to shoot at a 
 | **Total** | | 6 bytes | |
 
 ## Server Messages
+
+| `message_type` value | message type |
+|:--------------------:|--------------|
+| 0 | Invalid Action Message |
+| 1 | Map Message |
+
+### Invalid Move Message
+Message sent when a player tries to do an action that is invalid, like shoot somewhere they have shot before. This is only sent to the player who attempted an action. Since no action occurs, no map is sent.
+
+| field | c-type | size | description |
+|-------|--------|------|-------------|
+| `message_type` | u char | 1 byte | map messages are of type 0 |
+| `event_type` | u short | 2 bytes | event that resulted based on client message |
+| **Total** |
+
+| `event_type` value | event type |
+|:------------------:|------------|
+| 00 | Invalid Monster coordinates |
+| 01 | Monster placement overlap |
+| 10 | Invalid target coordinates |
+| 11 | Target already fired upon |
+
+### Map Message
+The server holds the only official copy of the boards, so after each successful action by a player, the server will send a new map to each player, along with the result of the action.
+
+| field | c-type | size | description |
+|-------|--------|------|-------------|
+| `message_type` | u char | 1 byte | map messages are of type 1 |
+| `event_type` | u short | 2 bytes | event that resulted based on client message |
+| `monster_id` | u char | 1 byte | Monster id, not used for 'missed' messages.
+| `row_value` | long int | 8 bytes * 10 | Value of each row |
+| **Total** | | 84 bytes | |
+
+| `event_type` value | event type |
+|:------------------:|------------|
+| 000 | You missed |
+| 001 | You hit |
+| 010 | You sunk |
+| 011 | You won |
+| 100 | Opponent missed |
+| 101 | Opponent hit |
+| 110 | Opponent sunk |
+| 111 | Opponent won |
