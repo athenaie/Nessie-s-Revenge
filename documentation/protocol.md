@@ -20,7 +20,7 @@ This message is sent to inform the server of the clients' attempt to place a mon
 | `start_coordinate_x` | u char | 2 byte | the x coordinate where the monster starts |
 | `start_coordinate_y` | u char | 1 byte | the y coordinate where the monster starts |
 | `end_coordinate_x` | u char | 1 byte | the x coordinate where the monster ends |
-| `end_coordinate_y` | u char | 1 byte | the y coordinate where the monster ends |
+| `end_coordinate_y` | u char | 1 byte | the y coordinate where the monster  ends |
 | **Total** | | 8 bytes | |
 
 
@@ -31,9 +31,9 @@ This message is sent to inform the server of the clients' attempt to shoot at a 
 |-------|--------|------|-------------|
 | `message_type` | u char | 1 byte | monster placement messages have type 1 |
 | `player_id` | u short | 2 bytes | player's id number, identifies client |
-| `target_coord_x` | u char | 2 bytes | the x coordinate of target cell |
-| `target_coord_y` | u char | 1 byte | the y coordinate of target cell |
-| **Total** | | 6 bytes | |
+| `target_coord_x` | u char | 1 byte | the x coordinate of the target cell |
+| `target_coord_y` | u char | 1 byte | the y coordinate of the target cell |
+| **Total** | | 5 bytes | |
 
 ## Server Messages
 
@@ -49,14 +49,15 @@ Message sent when a player tries to do an action that is invalid, like shoot som
 |-------|--------|------|-------------|
 | `message_type` | u char | 1 byte | map messages are of type 0 |
 | `event_type` | u short | 2 bytes | event that resulted based on client message |
-| **Total** |
+| **Total** | | 3 bytes | |
 
 | `event_type` value | event type |
 |:------------------:|------------|
-| 00 | Invalid Monster coordinates |
-| 01 | Monster placement overlap |
-| 10 | Invalid target coordinates |
-| 11 | Target already fired upon |
+| 000 | Invalid Monster coordinate(s) |
+| 001 | Invalid Monster position |
+| 010 | Monster placement overlap |
+| 100 | Invalid target coordinates |
+| 101 | Target already fired upon |
 
 ### Map Message
 The server holds the only official copy of the boards, so after each successful action by a player, the server will send a new map to each player, along with the result of the action.
