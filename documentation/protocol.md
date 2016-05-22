@@ -16,12 +16,12 @@ This message is sent to inform the server of the clients' attempt to place a mon
 | field | c-type | size | description |
 |-------|--------|------|-------------|
 | `message_type` | u char | 1 byte | monster placement messages have type 0 |
-| `player_id` | u short | 2 bytes | player's id number, identifies client |
-| `start_coordinate_x` | u char | 2 byte | the x coordinate where the monster starts |
+| `player_id` | u char | 1 byte | player's id number, identifies client |
+| `start_coordinate_x` | u char | 1 byte | the x coordinate where the monster starts |
 | `start_coordinate_y` | u char | 1 byte | the y coordinate where the monster starts |
 | `end_coordinate_x` | u char | 1 byte | the x coordinate where the monster ends |
 | `end_coordinate_y` | u char | 1 byte | the y coordinate where the monster  ends |
-| **Total** | | 8 bytes | |
+| **Total** | | 6 bytes | |
 
 
 ### Shoot Message
@@ -30,12 +30,13 @@ This message is sent to inform the server of the clients' attempt to shoot at a 
 | field | c-type | size | description |
 |-------|--------|------|-------------|
 | `message_type` | u char | 1 byte | monster placement messages have type 1 |
-| `player_id` | u short | 2 bytes | player's id number, identifies client |
+| `player_id` | u char | 1 byte | player's id number, identifies client |
 | `target_coord_x` | u char | 1 byte | the x coordinate of the target cell |
 | `target_coord_y` | u char | 1 byte | the y coordinate of the target cell |
-| **Total** | | 5 bytes | |
+| **Total** | | 4 bytes | |
 
 ## Server Messages
+There are two types of message formats sent from the client. The first byte of each message identifies the `message_type`.
 
 | `message_type` value | message type |
 |:--------------------:|--------------|
@@ -43,7 +44,7 @@ This message is sent to inform the server of the clients' attempt to shoot at a 
 | 1 | Map Message |
 
 ### Invalid Move Message
-Message sent when a player tries to do an action that is invalid, like shoot somewhere they have shot before. This is only sent to the player who attempted an action. Since no action occurs, no map is sent.
+Message sent when a player tries to do an action that is invalid. It includes an event that is the result of the attempted action. This is only sent to the player who attempted the action. Since no action occurs, no map is sent.
 
 | field | c-type | size | description |
 |-------|--------|------|-------------|
@@ -53,21 +54,24 @@ Message sent when a player tries to do an action that is invalid, like shoot som
 
 | `event_type` value | event type |
 |:------------------:|------------|
-| 000 | Invalid Monster coordinate(s) |
-| 001 | Invalid Monster position |
-| 010 | Monster placement overlap |
-| 100 | Invalid target coordinates |
-| 101 | Target already fired upon |
+| 0001 | Invalid row coordinate |
+| 0010 | Invalid column coordinate |
+| 0011 | Invalid coordinates |
+| 0100 | Coordinates are not on a line |
+| 0101 | No remaining monsters of length |
+| 0010 | Monster placement overlap |
+| 0100 | Invalid target coordinates |
+| 0101 | Target already fired upon |
 
 ### Map Message
-The server holds the only official copy of the boards, so after each successful action by a player, the server will send a new map to each player, along with the result of the action.
+The server holds the only official copy of the boards, so after each successful action by a player, the server will send a new map to each player, along with the event.
 
 | field | c-type | size | description |
 |-------|--------|------|-------------|
 | `message_type` | u char | 1 byte | map messages are of type 1 |
 | `event_type` | u short | 2 bytes | event that resulted based on client message |
 | `monster_id` | u char | 1 byte | Monster id, not used for 'missed' messages.
-| `row_value` | long int | 8 bytes * 10 | Value of each row |
+| `row_value` | long int | 8 bytes * 10 | This value will be translated into the value of each cell |
 | **Total** | | 84 bytes | |
 
 | `event_type` value | event type |
@@ -80,3 +84,5 @@ The server holds the only official copy of the boards, so after each successful 
 | 101 | Opponent hit |
 | 110 | Opponent sunk |
 | 111 | Opponent won |
+
+|
