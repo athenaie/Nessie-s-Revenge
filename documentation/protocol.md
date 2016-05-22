@@ -71,7 +71,7 @@ The server holds the only official copy of the boards, so after each successful 
 | `message_type` | u char | 1 byte | map messages are of type 1 |
 | `event_type` | u short | 2 bytes | event that resulted based on client message |
 | `monster_id` | u char | 1 byte | Monster id, not used for 'missed' messages.
-| `row_value` | int | 4 bytes * 10 | This value will be translated into the value of each cell |
+| `row_value` | int | 4 bytes * 10 rows | This value will be translated into the value of each cell |
 | **Total** | | 44 bytes | |
 
 | `event_type` value | event type |
@@ -86,9 +86,9 @@ The server holds the only official copy of the boards, so after each successful 
 | 111 | Opponent won |
 
 #### Row Values
-Each row is sent as an int, and each cell is represented by two bits.
-The first two bits are for row[0], the next to bits are for row[1], etc., so only the bottom 20 bits are used.
-Each `cell_type` has its own two bit code.
+Each row of the board is translated into an int. The rows are sent from first to last (A to I).  Each cell in a row is represented by two bits.
+The first two bits are for `row[0]`, the next two bits are for `row[1]`, etc., so only the bottom `20` bits are used.
+Each `cell_type` has its own `2` bit code.
 
 | `cell_type` value | cell type |
 |:-----------------:|-------------|
