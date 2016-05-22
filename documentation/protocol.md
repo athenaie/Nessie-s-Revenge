@@ -59,9 +59,9 @@ Message sent when a player tries to do an action that is invalid. It includes an
 | 0011 | Invalid coordinates |
 | 0100 | Coordinates are not on a line |
 | 0101 | No remaining monsters of length |
-| 0010 | Monster placement overlap |
-| 0100 | Invalid target coordinates |
-| 0101 | Target already fired upon |
+| 0110 | Monster placement overlap |
+| 1001 | Invalid target coordinates |
+| 1010 | Target already fired upon |
 
 ### Map Message
 The server holds the only official copy of the boards, so after each successful action by a player, the server will send a new map to each player, along with the event.
@@ -71,8 +71,8 @@ The server holds the only official copy of the boards, so after each successful 
 | `message_type` | u char | 1 byte | map messages are of type 1 |
 | `event_type` | u short | 2 bytes | event that resulted based on client message |
 | `monster_id` | u char | 1 byte | Monster id, not used for 'missed' messages.
-| `row_value` | long int | 8 bytes * 10 | This value will be translated into the value of each cell |
-| **Total** | | 84 bytes | |
+| `row_value` | int | 4 bytes * 10 | This value will be translated into the value of each cell |
+| **Total** | | 44 bytes | |
 
 | `event_type` value | event type |
 |:------------------:|------------|
@@ -85,4 +85,14 @@ The server holds the only official copy of the boards, so after each successful 
 | 110 | Opponent sunk |
 | 111 | Opponent won |
 
-|
+#### Row Values
+Each row is sent as an int, and each cell is represented by two bits.
+The first two bits are for row[0], the next to bits are for row[1], etc., so only the bottom 20 bits are used.
+Each `cell_type` has its own two bit code.
+
+| `cell_type` value | cell type |
+|:-----------------:|-------------|
+| 00 | water |
+| 01 | miss |
+| 10 | monster |
+| 11 | hit |
