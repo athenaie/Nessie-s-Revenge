@@ -1,4 +1,4 @@
-# Board and Monster Specification
+# Map and Monster Specification
 
 ## Monster Specification
  Each player starts the game with one monster of each `monster_id`:
@@ -11,21 +11,21 @@
 | **0011** | Lariousauro | 3 | Italian |
 | **0100** | Muyso | 2 | Columbian |
 
-## Board Specification
- Each player has two `10`x`10` boards that can be displayed to them. Their primary board showing their own monsters with the hits and misses of their opponent, and their target board with their hits and misses taken against their opponent.
+## map Specification
+ Each player has two `10`x`10` maps that can be displayed to them. Their primary map showing their own monsters with the hits and misses of their opponent, and their target map with their hits and misses taken against their opponent.
 
- On the board, `board_piece`s are signified as follows:
+ On the map, `map_piece`s are signified as follows:
 
-| `board_piece` | character |
+| `map_piece` | character |
 |---------------|:---------:|
 | **monster** | M |
 | **hit** | X |
 | **miss** | / |
- **Note:** the `monster board_piece` is only displayed when it has **not** yet been hit
+ **Note:** the `monster map_piece` is only displayed when it has **not** yet been hit
 
- The board is labeled from left to right with the numbers `0` to `9` and from top to bottom with the letters `A` to `J`.
+ The map is labeled from left to right with the numbers `0` to `9` and from top to bottom with the letters `A` to `J`.
 
-## Sample Board
+## Sample map
 
 |   | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
 |---|---|---|---|---|---|---|---|---|---|---|

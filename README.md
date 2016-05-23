@@ -2,7 +2,7 @@
 
 Nessie's Revenge is a CLI implementation of battle ship. The name is based on
 the name of the Loch Ness Monster, Nessie. Instead of leading a fleet of ships,
-each player has a collection of lake monsters from around the world.
+each player has an army of lake monsters from around the world.
 
 ## Dependencies
 

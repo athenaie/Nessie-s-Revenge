@@ -1,9 +1,9 @@
 import string
 
-def print_board(board):
-    ''' Prints board (list of lists) to standard output'''
+def print_map(map):
+    ''' Prints a map to standard output'''
 
-    # print top number labels
+    # print labels from 0-9
     print()
     print('      |=======================================|')
     print('      | ', end='')
@@ -11,23 +11,20 @@ def print_board(board):
         print(i, end=' | ')
     print('\n||---||=======================================|')
 
-    # print rest of board
+    # print rows A through J
     for row in range(0,10):
         print('||', string.ascii_uppercase[row], end=' || ')
-        for cell in board[row]:
+        for cell in map[row]:
             print(cell, end=' | ')
         print('\n||---||---------------------------------------|')
     print()
 
-remaining_monsters = {'Nessie':5, 'Ogopogo': 4,
-'Inkanyamba':3, 'Lariousauro':3, 'Muyso':2}
-
-def print_remaining_monsters(board):
+def print_remaining_monsters(map):
+    ''' Prints monsters you have left to deploy '''
     print("You have " + str(len(remaining_monsters)) + " monster(s) to deploy.\n")
 
     for name, length in remaining_monsters.items():
         print(name.center(12), repr(length).center(3))
 
 if __name__ == "__main__":
-    import sys
-    print_board(board)
+    print("This file is for printing map and flee")

@@ -1,12 +1,12 @@
-from displayboard import print_board
-from displayboard import print_remaining_monsters
+from display import print_map
+from display import print_remaining_monsters
 
 class Player:
-    board_size = 10
+    map_size = 10
 
     def __init__(self):
         self.name = ''
-        self.my_board = [
+        self.my_map = [
             [' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
             [' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
             [' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
@@ -39,15 +39,12 @@ def greet_player(name):
     input("Press enter to continue...")
     print()
 
-def setup_my_board(player):
-    print("Here is your section of ocean:")
-    print_board(player.my_board)
-    print_remaining_monsters(player.my_board)
-
-
-
+def setup_my_map(player):
+    print("Here is a map of your section of ocean:")
+    print_map(player.my_map)
+    print_remaining_monsters(player.my_map)
 
 if __name__ == "__main__":
     player = Player()
     setup_player(player)
-    setup_my_board(player)
+    setup_my_map(player)

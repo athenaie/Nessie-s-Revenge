@@ -10,7 +10,7 @@ There are two types of message formats sent from the client. The first byte of e
 | 1 | Shoot Message |
 
 ### Place Monster Message
-This message is sent to inform the server of the clients' attempt to place a monster on the board.
+This message is sent to inform the server of the clients' attempt to place a monster on the map.
 
 
 | field | c-type | size | description |
@@ -64,7 +64,7 @@ Message sent when a player tries to do an action that is invalid. It includes an
 | 1010 | Target already fired upon |
 
 ### Map Message
-The server holds the only official copy of the boards, so after each successful action by a player, the server will send a new map to each player, along with the event.
+The server holds the only official copy of the maps, so after each successful action by a player, the server will send a new map to each player, along with the event.
 
 | field | c-type | size | description |
 |-------|--------|------|-------------|
@@ -86,7 +86,7 @@ The server holds the only official copy of the boards, so after each successful 
 | 111 | Opponent won |
 
 #### Row Values
-Each row of the board is translated into an int. The rows are sent from first to last (A to I).  Each cell in a row is represented by two bits.
+Each row of the map is translated into an int. The rows are sent from first to last (A to I).  Each cell in a row is represented by two bits.
 The first two bits are for `row[0]`, the next two bits are for `row[1]`, etc., so only the bottom `20` bits are used.
 Each `cell_type` has its own `2` bit code.
 
