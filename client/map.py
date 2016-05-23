@@ -7,42 +7,41 @@
 import string
 
 class Map:
-''' A graphical representation of a map '''
+    ''' A graphical representation of a map '''
 
-    def __init__(self, type):
-        self.type = type
+    def __init__(self):
         self.map = [
-            [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
-            [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
-            [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
-            [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
-            [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
-            [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
-            [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
-            [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
-            [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+            [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+            [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+            [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+            [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+            [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+            [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+            [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+            [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+            [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
             [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
         ]
 
-    def print_map(map):
-        ''' Prints a map to standard output'''
+def print_map(map):
+    ''' Prints a map to standard output'''
 
-        # print labels from 0-9
-        print()
-        print('      |=======================================|')
-        print('      | ', end='')
-        for i in range(0,10):
-            print(i, end=' | ')
-        print('\n||---||=======================================|')
+    # print labels from 0-9
+    print()
+    print('      |=======================================|')
+    print('      | ', end='')
+    for i in range(0,10):
+        print(i, end=' | ')
+    print('\n||---||=======================================|')
 
-        # print rows A through J
-        for row in range(0,10):
-            print('||', string.ascii_uppercase[row], end=' || ')
-            for cell in map[row]:
-                print(cell, end=' | ')
-            print('\n||---||---------------------------------------|')
-        print()
+    # print rows A through J
+    for row in range(0,10):
+        print('||', string.ascii_uppercase[row], end=' || ')
+        for cell in map.map[row]:
+            print(cell, end=' | ')
+        print('\n||---||---------------------------------------|')
+    print()
 
-    if __name__ == "__main__":
-        map = Map()
-        print_map(map)
+if __name__ == "__main__":
+    map = Map()
+    print_map(map)
