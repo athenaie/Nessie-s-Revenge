@@ -9,10 +9,5 @@ each player has an army of lake monsters from around the world.
 ### Client
 - `Python3.*` is required to run the client
 
-## Why is nothing/very little here yet?
-This project is currently being ported from the work I have already done in Java
-into Python, since I changed my mind about the implementation language I wanted
-to use. In a few days there should be significantly more code, so check back!
-
-## A note on folder names
-The client and server folders are labeled as such to demonstrate the way concerns should be separated. My intention is to add a client-server implementation later, but I want to have this plan on my mind throughout early development.
+## Current Progress
+Currently there is only development on the client. Most of the data structures have been designed and implemented for storing information about the player, their maps, and their monsters. Although server and client message handlers have not been developed yet, a draft of the communication protocol has been developed (see documentation).
