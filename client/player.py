@@ -6,7 +6,6 @@
 from map import Map
 
 class Player:
-    map_size = 10
 
     def __init__(self):
         self.name = ''
