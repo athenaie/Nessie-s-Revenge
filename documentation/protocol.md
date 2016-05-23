@@ -60,8 +60,8 @@ Message sent when a player tries to do an action that is invalid. It includes an
 | 0100 | Coordinates are not on a line |
 | 0101 | No remaining monsters of length |
 | 0110 | Monster placement overlap |
-| 1001 | Invalid target coordinates |
-| 1010 | Target already fired upon |
+| 0111 | Invalid target coordinates |
+| 1000 | Target already fired upon |
 
 ### Map Message
 The server holds the only official copy of the maps, so after each successful action by a player, the server will send a new map to each player, along with the event.
