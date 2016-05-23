@@ -1,3 +1,9 @@
+# Project: Nessie's Revenge (client)
+# File: player.py
+# Author: Marissa Baden
+# Created: May 21, 2016
+# Modified: May 23, 2016
+
 from display import print_map
 from display import print_remaining_monsters
 

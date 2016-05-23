@@ -1,3 +1,9 @@
+# Project: Nessie's Revenge (client)
+# File: displaymap.py
+# Author: Marissa Baden
+# Created: May 23, 2016
+# Modified: May 23, 2016
+
 import string
 
 def print_map(map):
