@@ -4,9 +4,9 @@
 # Created: May 23, 2016
 # Modified: May 23, 2016
 from player import Player
-from map import Map.print_map
+from map import print_map
+from const import print_monsters
 from const import monster_attributes as a
-
 
 player = Player()
 
@@ -25,13 +25,13 @@ def greet_player():
           "turns firing until one army has been defeated.\n")
     input("Press enter to continue...")
     print()
-    print("These are your monsters:")
-    print_monsters(list(range(0,5)), [a.origin, a.name], 'The', '\n')
-    print("And this is your map:")
+    print("These are your monsters:\n")
+    print_monsters(list(range(0,5)), [a.origin, a.name], 'The ', '\n', False)
+    print("\nAnd this is your map:")
     print_map(player.my_map)
     print("You can place your monsters along any row or column, but they must",
         "stay within the map and cannot overlap each other.")
-    input("Press enter to begin...")
+    input("\nPress enter to begin...")
 
 def populate_my_map():
     global player
@@ -40,6 +40,5 @@ def populate_my_map():
     #TODO continue here
 
 if __name__ == "__main__":
-    global player
-    setup_player(player)
-    populate_my_map(player)
+    setup_player()
+    populate_my_map()
