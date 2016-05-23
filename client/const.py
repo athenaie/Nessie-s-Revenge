@@ -4,9 +4,9 @@
 # Created: May 23, 2016
 # Modified: May 23, 2016
 
-from enum import Enum
+from enum import IntEnum
 
-class monster_attributes(Enum):
+class monster_attributes(IntEnum):
     name = 0
     length = 1
     origin = 2
@@ -17,7 +17,13 @@ monster_list = [('Nessie', 5, 'Scottish'),
             ('Lariousauro', 3, 'Italian'),
             ('Muyso', 2, 'Columbian')]
 
-def print_monsters(monsters, attributes, prefix, postfix):
+def print_monsters(monsters, attributes, prefix, postfix, columns):
     ''' Prints a subset of the attributes of a subset of the monsters'''
-    for monster in monster_list for attribute in attributes:
-        print(prefix, repr(monster[attribute].center(12)), postfix, end=' ')
+    for monster in monster_list:
+        print(prefix, end='')
+        for attribute in attributes:
+            if columns:
+                print(str(monster[attribute].center(15)), end=' ')
+            else:
+                print(monster[attribute], end=' ')
+        print(postfix, end='')
